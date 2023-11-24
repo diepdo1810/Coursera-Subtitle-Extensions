@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Coursera Subtitle Extensions",
-    "description": "Hello, this is a project to change the language of courses subtitles because I noticed that many people have trouble due to the lack of subtitles in their native language. I thought to myself that I could create a subtitle translator using Google Translate API",
+    "description": "Translate Coursera Subtitle By Google Translate",
     "version": "0.0.0.1",
     "browser_action": {
         "default_popup": "index.html",

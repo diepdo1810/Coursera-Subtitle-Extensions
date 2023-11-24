@@ -16,10 +16,12 @@ async function openBilingual() {
 
       let cuesTextList = getTexts(cues);
       getTranslation(cuesTextList, (translatedText) => {
-        let translatedList = splitStringWithId(removeSpaceAfterId(translatedText));
+        let translatedList = splitStringWithId(translatedText);
         for (let i = 0; cues.length; i++) {
-          if (cues[i].id == translatedList[i].id) {
-            cues[i].text = translatedList[i].text;
+          if (translatedList[i].id != undefined) {
+            if (cues[i].id == translatedList[i].id) {
+              cues[i].text = translatedList[i].text;
+            }
           }
         }
       });
@@ -100,10 +102,11 @@ function getTranslation(words, callback) {
       if (xhr.readyState === xhr.DONE) {
         if (xhr.status === 200 || xhr.status === 304) {
           const translatedList = JSON.parse(xhr.responseText)[0];
-          let translatedText = "";
+          let translatedTextArray = [];
           for (let i = 0; i < translatedList.length; i++) {
-            translatedText += translatedList[i][0];
+            translatedTextArray.push(translatedList[i][0]);
           }
+          let translatedText = translatedTextArray.join(" ");
           callback(translatedText);
         }
       }
