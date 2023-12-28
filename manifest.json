@@ -22,13 +22,13 @@
                 "*://www.coursera.org/*"
             ],
             "js": [
-                "js/main.js"
+                "bundle.js"
             ]
         }
     ],
     "background": {
         "scripts": [
-            "js/main.js"
+            "bundle.js"
         ],
         "persistent": false
     },
